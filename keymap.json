@@ -1,0 +1,8 @@
+// Personal keyboard shortcuts for Zed.
+[
+  { // Custom bindings supplement the JetBrains base keymap.
+    "bindings": { // Keyboard sequences mapped to Zed actions.
+      "shift shift": "file_finder::Toggle" // Press and release Shift twice to search project filenames.
+    }
+  }
+]

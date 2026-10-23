@@ -1,0 +1,142 @@
+// Personal Zed settings — readable developer setup, October 2026.
+// Edit values below; // comments are supported by Zed (JSON with comments).
+// Sizes are pixels, weights are 100–900 (400 = normal, 500 = medium).
+// Reference: https://zed.dev/docs/reference/all-settings
+{
+  "base_keymap": "JetBrains", // Use PhpStorm/JetBrains-style shortcuts; change to "Zed" for Zed defaults.
+  // FONT AND TEXT SPACING
+  "ui_font_family": ".SystemUIFont", // Menus, tabs and tree: macOS system font; use ".ZedSans" for Zed's bundled UI font.
+  "ui_font_size": 17, // Interface text size; try 16 or 17 if menus and filenames feel small.
+  "ui_font_weight": 400, // Interface thickness; try 500 for slightly stronger labels.
+  "buffer_font_family": "JetBrains Mono", // Code font: installed JetBrains Mono; use ".ZedMono" to return to Zed's bundled font.
+  "buffer_font_size": 16, // Code text size; try 17 or 18 for easier reading, or 14–15 for more code on screen.
+  "buffer_font_weight": 400, // Code thickness; 400 is regular, 500 is medium.
+  "buffer_line_height": {
+    // Vertical space between code lines; independent of indentation width.
+    "custom": 1.618, // Multiplier: 1.3 = compact, 1.5 = balanced, 1.618 = roomy; 16 px × 1.5 is about 24 px per line.
+  },
+  "buffer_font_features": {
+    // Optional typography supported by the selected code font.
+    "calt": false, // Keep programming symbols visually separate; set true to enable contextual ligatures.
+    "liga": false, // Disable standard ligatures too; set true if you prefer joined glyphs.
+  },
+
+  // THEME
+  "theme": {
+    // Choose light/dark colors automatically, following macOS appearance.
+    "mode": "system", // Options: "system", "light", "dark"; choose "dark" for an always-dark editor.
+    "light": "One Light", // Theme used in light mode; replace with another installed theme name.
+    "dark": "One Dark", // Theme used in dark mode; replace with another installed theme name.
+  },
+
+  "tabs": {
+    // Appearance of file tabs above the editor.
+    "file_icons": true, // Show a file-type icon beside each tab title; set false to hide it.
+  },
+
+  // PROJECT TREE AND NAVIGATION
+  "project_panel": {
+    // File and folder browser; its text uses ui_font_* above.
+    "dock": "left", // Put the project tree on the left; change to "right" to move it.
+    "default_width": 300, // Initial/reset width in pixels; you can also drag the panel divider.
+    "entry_spacing": "comfortable", // Vertical spacing between tree rows; "standard" fits more rows.
+    "indent_size": 16, // Horizontal pixels per folder depth; increase to 20 for stronger nesting.
+    "file_icons": true, // Show icons next to filenames.
+    "folder_indicator": "icon", // Show folder icons; "arrow" uses expansion arrows instead.
+    "git_status": true, // Mark files with Git changes in the tree.
+    "auto_reveal_entries": true, // Reveal the active file in the tree automatically.
+    "auto_fold_dirs": false, // Show each folder separately; true compresses chains of single-child folders.
+    "indent_guides": {
+      // Lines that make folder nesting easier to follow.
+      "show": "always", // Use "never" to hide tree guide lines.
+    },
+  },
+
+  // EDITOR READABILITY AND EVERYDAY DEVELOPMENT
+  "soft_wrap": "none", // Preserve code rows and scroll horizontally; "editor_width" wraps visually without editing files.
+  "preferred_line_length": 100, // Preferred column count for wrapping/rewrap; not a hard limit or a formatter guarantee.
+  "show_whitespaces": "selection", // Show spaces/tabs only in selected text; "all" reveals them everywhere, "none" hides them.
+  "indent_guides": {
+    // Vertical guides for nested code blocks.
+    "enabled": true, // Set false to hide editor indentation guides.
+  },
+  "vertical_scroll_margin": 5, // Keep five lines of context above/below the cursor during keyboard navigation.
+  "scroll_beyond_last_line": "vertical_scroll_margin", // Allow a little space below the last line; "one_page" allows much more.
+  "auto_signature_help": true, // Show function parameters while typing inside parentheses.
+  "show_completions_on_input": true, // Offer language-server completions while you type.
+  "format_on_save": "off", // Save without running a formatter.
+  "remove_trailing_whitespace_on_save": false, // Preserve trailing whitespace when saving.
+  "ensure_final_newline_on_save": false, // Preserve existing final newlines when saving.
+
+  // Override languages that enable formatting on save by default.
+  "languages": {
+    "Astro": { "format_on_save": "off" },
+    "Dart": { "format_on_save": "off" },
+    "EEx": { "format_on_save": "off" },
+    "Elixir": { "format_on_save": "off" },
+    "Elm": { "format_on_save": "off" },
+    "Go": { "format_on_save": "off" },
+    "GraphQL": { "format_on_save": "off" },
+    "HEEx": { "format_on_save": "off" },
+    "Kotlin": { "format_on_save": "off" },
+    "Rust": { "format_on_save": "off" },
+    "Starlark": { "format_on_save": "off" },
+    "Zig": { "format_on_save": "off" },
+  },
+
+  // GO DEVELOPMENT
+  "code_lens": "on", // Show actions such as run test and run benchmark above Go tests.
+  "inlay_hints": {
+    "enabled": true, // Display the type and parameter hints supplied by gopls.
+  },
+
+  // INTEGRATED TERMINAL
+  "terminal": {
+    // Terminal typography is independent of interface text.
+    "dock": "bottom", // Open the terminal below the editor.
+    "font_family": "JetBrains Mono", // Terminal font: match the editor's installed JetBrains Mono family.
+    "font_size": 15, // Terminal text size in pixels; increase to 16–17 for larger output.
+    "line_height": "standard", // Compact terminal rows (1.3); "comfortable" adds space (1.618), but may gap terminal graphics.
+  },
+
+  // EXISTING LAUNCH AND CODEX SETTINGS
+  "cli_default_open_behavior": "new_window", // Keep opening CLI-launched projects in a new window.
+  "agent_servers": {
+    // External coding agents available in Zed.
+    "codex-acp": {
+      // Keep your existing Codex ACP connection.
+      "type": "registry", // Resolve the agent through Zed's agent registry.
+    },
+  },
+
+  // EXISTING GO LANGUAGE-SERVER SETTINGS
+  "lsp": {
+    // Settings passed to language servers; these existing Go choices are preserved.
+    "gopls": {
+      // Official Go language server.
+      "initialization_options": {
+        // Options sent when gopls starts.
+        "staticcheck": true, // Enable additional Staticcheck analyses while editing Go.
+        "hints": {
+          // Hints gopls can supply; displaying them also depends on Zed's inlay_hints.enabled setting.
+          "assignVariableTypes": true, // Offer inferred types for variables declared with :=.
+          "compositeLiteralFields": true, // Offer field names in unkeyed struct literals.
+          "compositeLiteralTypes": true, // Offer omitted type names in composite literals.
+          "constantValues": true, // Offer computed values of constants.
+          "functionTypeParameters": true, // Offer inferred generic function type arguments.
+          "parameterNames": true, // Offer parameter names beside call arguments.
+          "rangeVariableTypes": true, // Offer inferred types for range variables.
+        },
+        "codelenses": {
+          // Go actions offered above relevant declarations when supported by gopls/Zed.
+          "test": true, // Offer actions to run tests.
+          "generate": true, // Offer go generate actions.
+          "regenerate_cgo": true, // Offer regeneration of cgo definitions.
+          "tidy": true, // Offer go mod tidy actions.
+          "upgrade_dependency": true, // Offer dependency upgrade actions.
+          "vendor": true, // Offer go mod vendor actions.
+        },
+      },
+    },
+  },
+}
